@@ -39,9 +39,9 @@ class Grid:
         print()
         for i in range(0,4):
             for j in range(0,4):
-                i=self.iternext()
-                if i > 0:
-                    fixed_string="{:^4}".format(str(i))
+                k=self.iternext()
+                if k > 0:
+                    fixed_string="{:^4}".format(str(k))
                     print(fixed_string,end='',flush=True)
                 else:
                     print('    ',end='',flush=True)
