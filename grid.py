@@ -51,6 +51,7 @@ class Grid:
             print('')
             if i<3:
                 print('----+----+----+----')
+        self.iternext()
         self.reset = False
     #check whether player has won
     def is_done(self):
@@ -71,7 +72,7 @@ class Grid:
         else:
             return self.newcoord()
     #move the board contents left
-    def left(self):
+    def right(self):
         for i in range(1,4):
             for y in range(0,4):
                 if self.board[i][y] != 0:
@@ -89,7 +90,7 @@ class Grid:
                         self.score -= 1
 
     #move board contents up
-    def up(self):
+    def down(self):
         for y in range(0,4):
             for i in range(0,4):
                 if self.board[i][y] != 0:
@@ -107,26 +108,28 @@ class Grid:
                         self.score -= 1
         
     #move the board contents right
-    def right(self):
-        for i in range(4,-1,-1):
-            for y in range(4,-1-1):
-                print(i,y)
+    def left(self):
+        #print(0)
+        for i in range(3,-1,-1):
+            for y in range(3,-1,-1):
+                #print(1)
+                #print(i,y)
                 if self.board[i][y] != 0:
                     n = i
                     #check destination square for '0'
-                    while n < 4 and self.board[n+1][y] == 0:
+                    while n < 3 and self.board[n+1][y] == 0:
                         self.board[n + 1][y] = self.board[n][y]
                         self.board[n][y] = 0
                         n += 1
                     #check destination square for match
-                    if n < 4 and self.board[n+1][y] == self.board[n][y]:
+                    if n < 3 and self.board[n+1][y] == self.board[n][y]:
                         self.board[n + 1][y] += self.board[n][y]
                         self.board[n][y] = 0
                         self.score += self.board[n + 1][y]
                         self.score -= 1
                         
     #move board contents down
-    def down(self):
+    def up(self):
         for y in range(3,-1,-1):
             for i in range(3,-1,-1):
                 if self.board[i][y] != 0:
