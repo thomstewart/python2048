@@ -5,7 +5,7 @@ class Grid:
     #initialize the board object    
     def __init__(self):
         self.board = [[0,0,0,0],
-                      [0,2,0,0],
+                      [0,0,0,0],
                       [0,0,0,0],
                       [0,0,0,0]]
         self.score = 0
@@ -53,16 +53,18 @@ class Grid:
                 print('----+----+----+----')
         self.iternext()
         self.reset = False
+                
     #check whether player has won
     def is_done(self):
         self.reset = False
         self.coordx = 0
         self.coordy = 0
         while self.reset == False:
-            if self.iternext() == 2048:
+            if self.iternext() == 32:
                 print('You Win!')
                 sys.exit()
         self.reset = False
+        
     #generate a random coordinate
     def newcoord(self):
         x = random.randrange(0,4,1)
@@ -71,8 +73,8 @@ class Grid:
             return(x,y)
         else:
             return self.newcoord()
-    #move the board contents left
-    def right(self):
+    #move the board contents up
+    def up(self):
         for i in range(1,4):
             for y in range(0,4):
                 if self.board[i][y] != 0:
@@ -89,8 +91,8 @@ class Grid:
                         self.score += self.board[n-1][y]
                         self.score -= 1
 
-    #move board contents up
-    def down(self):
+    #move board contents left
+    def left(self):
         for y in range(0,4):
             for i in range(0,4):
                 if self.board[i][y] != 0:
@@ -107,8 +109,8 @@ class Grid:
                         self.score += self.board[i][n-1]
                         self.score -= 1
         
-    #move the board contents right
-    def left(self):
+    #move the board contents down
+    def down(self):
         #print(0)
         for i in range(3,-1,-1):
             for y in range(3,-1,-1):
@@ -128,8 +130,8 @@ class Grid:
                         self.score += self.board[n + 1][y]
                         self.score -= 1
                         
-    #move board contents down
-    def up(self):
+    #move board contents right
+    def right(self):
         for y in range(3,-1,-1):
             for i in range(3,-1,-1):
                 if self.board[i][y] != 0:
