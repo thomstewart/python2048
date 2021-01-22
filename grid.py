@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import sys #for exit on win
+import sys #for exit
 import random #for random number gen for coordinates
 class Grid:
     #initialize the board object    
@@ -156,3 +156,7 @@ class Grid:
                         self.board[i][n] = 0
                         self.score += self.board[i][n+1]
                         self.score -= 1
+
+
+      
+      
