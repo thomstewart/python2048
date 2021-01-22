@@ -13,6 +13,7 @@ class Grid:
         self.coordx= 0
         self.coordy= 0
         self.reset = False
+        self.update = False
 
 #    def iter(self):
 #        self.coord = (0,0)
@@ -60,7 +61,7 @@ class Grid:
         self.coordx = 0
         self.coordy = 0
         while self.reset == False:
-            if self.iternext() == 32:
+            if self.iternext() == 2048:
                 print('You Win!')
                 sys.exit()
         self.reset = False
@@ -81,11 +82,13 @@ class Grid:
                     n = i
                     #check destination square for '0'
                     while n>0 and self.board[n-1][y] == 0:
+                        self.update = True
                         self.board[n-1][y] = self.board[n][y]
                         self.board[n][y] = 0
                         n -= 1
                     #check destination square for match
                     if n > 0 and self.board[n-1][y] == self.board[n][y]:
+                        self.update = True
                         self.board[n-1][y] += self.board[n][y]
                         self.board[n][y] = 0
                         self.score += self.board[n-1][y]
@@ -99,11 +102,13 @@ class Grid:
                     n = y
                     #check destination square for '0'
                     while n > 0 and self.board[i][n - 1] == 0:
+                        self.update = True
                         self.board[i][n - 1] = self.board[i][n]
                         self.board[i][n] = 0
                         n -= 1
                     #check destination square for match
                     if n > 0 and self.board[i][n - 1] == self.board[i][n]:
+                        self.update = True
                         self.board[i][n-1] += self.board[i][n]
                         self.board[i][n] = 0
                         self.score += self.board[i][n-1]
@@ -120,11 +125,13 @@ class Grid:
                     n = i
                     #check destination square for '0'
                     while n < 3 and self.board[n+1][y] == 0:
+                        self.update = True
                         self.board[n + 1][y] = self.board[n][y]
                         self.board[n][y] = 0
                         n += 1
                     #check destination square for match
                     if n < 3 and self.board[n+1][y] == self.board[n][y]:
+                        self.update = True
                         self.board[n + 1][y] += self.board[n][y]
                         self.board[n][y] = 0
                         self.score += self.board[n + 1][y]
@@ -138,11 +145,13 @@ class Grid:
                     n = y
                     #check destination square for '0'
                     while n < 3 and self.board[i][n + 1] == 0:
+                        self.update = True
                         self.board[i][n + 1] = self.board[i][n]
                         self.board[i][n] = 0
                         n += 1
                     #check destination square for match
                     if n < 3 and self.board[i][n + 1] == self.board[i][n]:
+                        self.update = True
                         self.board[i][n+1] += self.board[i][n]
                         self.board[i][n] = 0
                         self.score += self.board[i][n+1]
