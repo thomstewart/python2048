@@ -6,7 +6,7 @@ This is a command line application to play the game "2048"
 I wrote this game to learn basic syntax for python and how to read from and write to files
 
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/eTHfzSXtlsY)
 
 # Development Environment
 
@@ -16,7 +16,8 @@ I used python with the sys, random, and pickle libraries
 
 # Useful sources
 
-* [Hello World](https://learning.oreilly.com/library/view/hello-world-third/9781617297021/)
+* [Hello World: Computer Programming for Kids and Other Beginners](https://learning.oreilly.com/library/view/hello-world-third/9781617297021/)
+* [w3 schools] (www.w3schools.com)
 
 # Future Work
 
